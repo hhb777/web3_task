@@ -1,3 +1,80 @@
+//两数之和
+//这里可以巧妙用map的方式实现，一下做法可优化
+func twoSum(nums []int, target int) (res []int) {
+    res = make([]int,2)
+    for i:=0;i<len(nums)-1;i++{
+        for j:=i+1;j<len(nums);j++{
+            if nums[i] + nums[j] == target{
+                res[0], res[1] = i, j
+                return 
+            }
+        }
+    }
+    return 
+}
+
+//合并区间
+//此题关键在于条件排序
+func merge(intervals [][]int) [][]int {
+    res := make([][]int, 1)
+    slices.SortFunc(intervals, func(p, q []int) int { return p[0] - q[0] })
+    count := 0
+    res[count] = intervals[0]
+    for i:=1;i<len(intervals);i++{
+        if intervals[i][0] <= res[count][1]{
+            res[count][1] = max(intervals[i][1], res[count][1])
+        }else{
+            res = append(res, intervals[i])
+            count++
+        }
+    }
+    return res
+}
+
+//删除有序数组中的重复项
+func removeDuplicates(nums []int) int {
+    i := 0
+    j := 1
+    for {
+        if j>=len(nums){
+            break
+        }
+        if nums[i] == nums[j]{
+            nums = append(nums[:j], nums[j+1:]...)
+            
+        }else{
+            i = j
+            j++
+        }
+    }
+    return len(nums)
+}
+
+//加一
+func plusOne(digits []int) []int {
+    if digits[len(digits)-1] != 9{
+        digits[len(digits) - 1] += 1
+        return digits
+    }
+    digits[len(digits) - 1] = 0
+    inc := true
+    for i:=len(digits)-2; i>=0; i--{
+        if digits[i] == 9 && inc {
+            digits[i] = 0
+        }else{
+            digits[i] += 1
+            inc = false
+            break
+        }
+    }
+    if inc{
+        tlist := []int{1}
+        digits = append(tlist, digits...)
+    }
+    return digits
+
+}
+
 //最长公共前缀
 //此题关键在于第一个字符开始匹配，并不关心中间字符串是否匹配
 func longestCommonPrefix(strs []string) string {
