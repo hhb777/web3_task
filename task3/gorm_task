@@ -1,0 +1,165 @@
+sql语句练习：
+题目1：基本CRUD操作
+假设有一个名为 students 的表，包含字段 id （主键，自增）、 name （学生姓名，字符串类型）、 age （学生年龄，整数类型）、 grade （学生年级，字符串类型）。
+要求 ：
+编写SQL语句向 students 表中插入一条新记录，学生姓名为 "张三"，年龄为 20，年级为 "三年级"。
+insert into students(name,age,grade) values("张三",20,"三年级");
+编写SQL语句查询 students 表中所有年龄大于 18 岁的学生信息。
+select * from students where age > 18;
+编写SQL语句将 students 表中姓名为 "张三" 的学生年级更新为 "四年级"。
+update students set grade="四年级" where name="张三";
+编写SQL语句删除 students 表中年龄小于 15 岁的学生记录。
+delete from students where age < 15;
+题目2：事务语句
+假设有两个表： accounts 表（包含字段 id 主键， balance 账户余额）和 transactions 表（包含字段 id 主键， from_account_id 转出账户ID， to_account_id 转入账户ID， amount 转账金额）。
+要求 ：
+编写一个事务，实现从账户 A 向账户 B 转账 100 元的操作。在事务中，需要先检查账户 A 的余额是否足够，如果足够则从账户 A 扣除 100 元，向账户 B 增加 100 元，并在 transactions 表中记录该笔转账信息。如果余额不足，则回滚事务。
+insert into accounts(id, balance) values (1, 200);
+insert into accounts(id, balance) values (2, 0);
+start transaction;
+set @balance = (select balance from accounts where id = 1);
+IF @balance < 100 then
+  ROLLBACK;
+ELSE
+  update accounts set balance=balance-100 where id=1;
+  update accounts set balance=balance+100 where id=2;
+  
+  insert into transactions(from_account_id,to_account_id,amount) values ("1", "2", 100);
+  commit;
+end IF;
+
+
+sqlX练习：
+
+表内容：
+5,zhang3,技术部,10000
+6,li4,财务部,20000
+7,wang5,技术部,30000
+8,lao6,技术部,60000
+
+
+编写Go代码，使用Sqlx查询 employees 表中所有部门为 "技术部" 的员工信息，并将结果映射到一个自定义的 Employee 结构体切片中。
+type Employee struct {
+	ID         int64  `id:"id"`
+	Name       string `name:"name"`
+	Department string `department:"department"`
+	Salary     string `salary:"salary"`
+}
+
+func main() {
+
+	dsn := "root:12345678@tcp(127.0.0.1:3306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := sqlx.Connect("mysql", dsn)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	employees := []Employee{}
+	err2 := db.Select(&employees, "select * from employees where department=\"技术部\";")
+	if err2 != nil {
+		panic(err2)
+	}
+	fmt.Println(employees)
+}
+
+employees output: [{5 zhang3 技术部 10000} {7 wang5 技术部 30000} {8 lao6 技术部 60000}]
+
+
+编写Go代码，使用Sqlx查询 employees 表中工资最高的员工信息，并将结果映射到一个 Employee 结构体中。
+type Employee struct {
+	ID         int64  `id:"id"`
+	Name       string `name:"name"`
+	Department string `department:"department"`
+	Salary     string `salary:"salary"`
+}
+
+func main() {
+
+	dsn := "root:12345678@tcp(127.0.0.1:3306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := sqlx.Connect("mysql", dsn)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	employees := []Employee{}
+	err2 := db.Select(&employees, "select * from employees where salary=(select MAX(salary) from employees);")
+	if err2 != nil {
+		panic(err2)
+	}
+	fmt.Println(employees)
+}
+
+gorm进阶练习：
+题目1：模型定义
+假设你要开发一个博客系统，有以下几个实体： User （用户）、 Post （文章）、 Comment （评论）。
+要求 ：
+使用Gorm定义 User 、 Post 和 Comment 模型，其中 User 与 Post 是一对多关系（一个用户可以发布多篇文章）， Post 与 Comment 也是一对多关系（一篇文章可以有多个评论）。
+编写Go代码，使用Gorm创建这些模型对应的数据库表。
+type User struct {
+	gorm.Model
+	Name string `gorm:"type:varchar(255);not null;index:idx_user_name"`
+	Post []Post `gorm:"foreignKey:Author;references:Name"`
+}
+type Post struct {
+	gorm.Model
+	Word_count uint
+	Author     string
+	Title      string    `gorm:"type:varchar(255);not null;index"`
+	Comment    []Comment `gorm:"foreignKey:Doc;references:Title"`
+}
+
+type Comment struct {
+	Number uint
+	Remark string
+	Doc    string `gorm:"size:255"`
+}
+
+func Run(db *gorm.DB) {
+	db.AutoMigrate(&User{})
+	db.AutoMigrate(&Post{})
+	db.AutoMigrate(&Comment{})
+
+}
+
+题目2：关联查询
+基于上述博客系统的模型定义。
+要求 ：
+编写Go代码，使用Gorm查询某个用户发布的所有文章及其对应的评论信息。
+	user := User{}
+	db.Preload(clause.Associations).Find(&user, "Name = ?", "zhang3")
+	fmt.Println(user)
+
+output: {{1 2025-07-30 20:07:28.481 +0800 CST 2025-07-30 20:07:28.481 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} zhang3 [{{1 2025-07-30 20:07:28.51 +0800 CST 2025-
+07-30 20:07:28.51 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} 1000 zhang3 z1 []} {{2 2025-07-30 20:07:28.51 +0800 CST 2025-07-30 20:07:28.51 +0800 CST {0001
+-01-01 00:00:00 +0000 UTC false}} 2000 zhang3 z2 []} {{3 2025-07-30 20:07:28.51 +0800 CST 2025-07-30 20:07:28.51 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} 3000 zhang3 z3 []}]}
+编写Go代码，使用Gorm查询评论数量最多的文章信息。（*仍需研究）
+	posts := Post{}
+	db.Debug().Model(&Post{}).Select("posts.*, MAX(comments.number) AS comment_count").
+		Joins("LEFT JOIN comments ON comments.doc = posts.title").
+		Group("posts.id").Order("comment_count DESC").Limit(1).Scan(&posts)
+	fmt.Println(posts)
+
+output: {{3 2025-07-30 20:07:28.51 +0800 CST 2025-07-30 20:07:28.51 +0800 CST {0001-01-01 00:00:00 +0000 UTC false}} 3000 zhang3 z3 []}
+题目3：钩子函数
+继续使用博客系统的模型。
+要求 ：
+为 Post 模型添加一个钩子函数，在文章创建时自动更新用户的文章数量统计字段。
+func (p *Post) BeforeCreate(tx *gorm.DB) (err error) {
+	tx.Model(p).Update("Word_count", p.Word_count+100)
+	return
+}
+upost := Post{Word_count: 10000, Author: "zhang3", Title: "z4"}
+
+db.Create(&upost)
+为 Comment 模型添加一个钩子函数，在评论删除时检查文章的评论数量，如果评论数量为 0，则更新文章的评论状态为 "无评论"。
+func (c *Comment) AfterDelete(tx *gorm.DB) (err error) {
+	if c.Number == 0 {
+		tx.Model(c).Update("Remark", "无状态")
+	}
+	return
+}
+
+
+
