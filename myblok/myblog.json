@@ -1,0 +1,787 @@
+{
+  "assert": {
+    "total": 0,
+    "success": 0,
+    "error": 0
+  },
+  "avg_response_size": 555.44,
+  "avg_response_time": 82.78,
+  "end_at": 1754148958251,
+  "env_id": "1",
+  "env_name": "默认环境",
+  "http": {
+    "total": 9,
+    "success": 9,
+    "error": 0
+  },
+  "iteration_count": 9,
+  "list": [
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 19.61,
+          "width": -0.04,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 31.2,
+          "width": 0.06,
+          "level": "red"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 13.63,
+          "width": 0.03,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 378.04,
+          "width": 0.77,
+          "level": "red"
+        },
+        "download": {
+          "duration": 65.67,
+          "width": 0.13,
+          "level": "yellow"
+        },
+        "process": {
+          "duration": 1.79
+        },
+        "total": {
+          "duration": 490.33
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 239,
+        "responseHeaders": 120,
+        "responseSize": 162,
+        "requestBody": 80,
+        "responseBody": 42,
+        "uncompressedResponseBody": 42
+      },
+      "timings": {
+        "request": 19.61299991607666,
+        "socket": 50.80909991264343,
+        "connect": 64.43829989433289,
+        "response": 442.48279988765717,
+        "end": 508.14879989624023,
+        "lookup": 50.80909991264343,
+        "done": 509.93909990787506
+      },
+      "response_time": 489,
+      "response_at": 1754148953542,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 201,
+      "response_size": 162,
+      "url": "http://127.0.0.1:8080/register",
+      "method": "PUT",
+      "name": "registerapi",
+      "target_id": "db82b2839b278",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a275f9b323",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02df95772000",
+      "startTime": 1754148952821,
+      "endTime": 1754148954053,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 1.06,
+          "width": -0.01,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.84,
+          "width": 0.01,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 116.13,
+          "width": 0.98,
+          "level": "yellow"
+        },
+        "download": {
+          "duration": 2.09,
+          "width": 0.02,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.19
+        },
+        "total": {
+          "duration": 119.26
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 239,
+        "responseHeaders": 121,
+        "responseSize": 270,
+        "requestBody": 54,
+        "responseBody": 149,
+        "uncompressedResponseBody": 149
+      },
+      "timings": {
+        "request": 1.0634000301361084,
+        "socket": 1.9061000347137451,
+        "response": 118.03690004348755,
+        "end": 120.1302000284195,
+        "lookup": 1.9061000347137451,
+        "connect": 1.9061000347137451,
+        "done": 120.32009994983673
+      },
+      "response_time": 120,
+      "response_at": 1754148954485,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 270,
+      "url": "http://127.0.0.1:8080/login",
+      "method": "PUT",
+      "name": "loginapi",
+      "target_id": "db90225b9b2d5",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a275f9b324",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e0ca772001",
+      "startTime": 1754148954057,
+      "endTime": 1754148954630,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 0.71,
+          "width": -0.03,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.29,
+          "width": 0.01,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 20.91,
+          "width": 0.95,
+          "level": "green"
+        },
+        "download": {
+          "duration": 0.89,
+          "width": 0.04,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.14
+        },
+        "total": {
+          "duration": 22.23
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 240,
+        "responseHeaders": 120,
+        "responseSize": 161,
+        "requestBody": 254,
+        "responseBody": 41,
+        "uncompressedResponseBody": 41
+      },
+      "timings": {
+        "request": 0.7145000696182251,
+        "socket": 1.0080000162124634,
+        "response": 21.915000081062317,
+        "end": 22.803200006484985,
+        "lookup": 1.0080000162124634,
+        "connect": 1.0080000162124634,
+        "done": 22.94760000705719
+      },
+      "response_time": 23,
+      "response_at": 1754148955135,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 161,
+      "url": "http://127.0.0.1:8080/article/create",
+      "method": "PUT",
+      "name": "createpost",
+      "target_id": "eb71b6079b3bc",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b325",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e15a772002",
+      "startTime": 1754148954633,
+      "endTime": 1754148955188,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 0.63,
+          "width": -0.02,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.21,
+          "width": 0.01,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 25.9,
+          "width": 0.94,
+          "level": "green"
+        },
+        "download": {
+          "duration": 1.42,
+          "width": 0.05,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.25
+        },
+        "total": {
+          "duration": 27.78
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 187,
+        "responseHeaders": 121,
+        "responseSize": 830,
+        "requestBody": 0,
+        "responseBody": 709,
+        "uncompressedResponseBody": 709
+      },
+      "timings": {
+        "request": 0.6335000991821289,
+        "socket": 0.8415000438690186,
+        "response": 26.74500000476837,
+        "end": 28.162500023841858,
+        "lookup": 0.8415000438690186,
+        "connect": 0.8415000438690186,
+        "done": 28.412400007247925
+      },
+      "response_time": 28,
+      "response_at": 1754148955649,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 830,
+      "url": "http://127.0.0.1:8080/article/list",
+      "method": "GET",
+      "name": "listpost",
+      "target_id": "ebe1c7839b3f2",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b326",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e1e6b72003",
+      "startTime": 1754148955194,
+      "endTime": 1754148955704,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 1.17,
+          "width": -0.04,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.21,
+          "width": 0.01,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 25.68,
+          "width": 0.93,
+          "level": "green"
+        },
+        "download": {
+          "duration": 1.78,
+          "width": 0.06,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.31
+        },
+        "total": {
+          "duration": 27.98
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 187,
+        "responseHeaders": 121,
+        "responseSize": 583,
+        "requestBody": 0,
+        "responseBody": 462,
+        "uncompressedResponseBody": 462
+      },
+      "timings": {
+        "request": 1.1725000143051147,
+        "socket": 1.384600043296814,
+        "response": 27.06060004234314,
+        "end": 28.841300010681152,
+        "lookup": 1.384600043296814,
+        "connect": 1.384600043296814,
+        "done": 29.15340006351471
+      },
+      "response_time": 28,
+      "response_at": 1754148956151,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 583,
+      "url": "http://127.0.0.1:8080/article?title=hhbweb3test&userid=1",
+      "method": "GET",
+      "name": "readpost",
+      "target_id": "eef6df779b007",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b327",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e266b72004",
+      "startTime": 1754148955706,
+      "endTime": 1754148956202,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 1.08,
+          "width": -0.08,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.29,
+          "width": 0.02,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 11.55,
+          "width": 0.92,
+          "level": "green"
+        },
+        "download": {
+          "duration": 0.74,
+          "width": 0.06,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.13
+        },
+        "total": {
+          "duration": 12.71
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 240,
+        "responseHeaders": 120,
+        "responseSize": 161,
+        "requestBody": 133,
+        "responseBody": 41,
+        "uncompressedResponseBody": 41
+      },
+      "timings": {
+        "request": 1.0813000202178955,
+        "socket": 1.3752000331878662,
+        "response": 12.928500056266785,
+        "end": 13.66509997844696,
+        "lookup": 1.3752000331878662,
+        "connect": 1.3752000331878662,
+        "done": 13.795700073242188
+      },
+      "response_time": 13,
+      "response_at": 1754148956711,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 161,
+      "url": "http://127.0.0.1:8080/article/update",
+      "method": "PUT",
+      "name": "updatepost",
+      "target_id": "ef1e43479b10c",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b328",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e2e3772005",
+      "startTime": 1754148956205,
+      "endTime": 1754148956766,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 1.49,
+          "width": -0.05,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.21,
+          "width": 0.01,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 25.8,
+          "width": 0.96,
+          "level": "green"
+        },
+        "download": {
+          "duration": 0.97,
+          "width": 0.04,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.28
+        },
+        "total": {
+          "duration": 27.25
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 242,
+        "responseHeaders": 120,
+        "responseSize": 161,
+        "requestBody": 56,
+        "responseBody": 41,
+        "uncompressedResponseBody": 41
+      },
+      "timings": {
+        "request": 1.487399935722351,
+        "socket": 1.6956000328063965,
+        "response": 27.493899941444397,
+        "end": 28.462599992752075,
+        "lookup": 1.6956000328063965,
+        "connect": 1.6956000328063965,
+        "done": 28.74150002002716
+      },
+      "response_time": 27,
+      "response_at": 1754148957213,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 161,
+      "url": "http://127.0.0.1:8080/article",
+      "method": "DELETE",
+      "name": "deletepost",
+      "target_id": "ef2ad4839b13f",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b329",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e370b72006",
+      "startTime": 1754148956770,
+      "endTime": 1754148957266,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 0.85,
+          "width": -0.06,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.2,
+          "width": 0.02,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 12.13,
+          "width": 0.91,
+          "level": "green"
+        },
+        "download": {
+          "duration": 0.97,
+          "width": 0.07,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.13
+        },
+        "total": {
+          "duration": 13.43
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 240,
+        "responseHeaders": 120,
+        "responseSize": 162,
+        "requestBody": 239,
+        "responseBody": 42,
+        "uncompressedResponseBody": 42
+      },
+      "timings": {
+        "request": 0.8485000133514404,
+        "socket": 1.0508999824523926,
+        "response": 13.182500004768372,
+        "end": 14.149800062179565,
+        "lookup": 1.0508999824523926,
+        "connect": 1.0508999824523926,
+        "done": 14.277500033378601
+      },
+      "response_time": 14,
+      "response_at": 1754148957742,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 162,
+      "url": "http://127.0.0.1:8080/comment",
+      "method": "PUT",
+      "name": "createcomment",
+      "target_id": "efc5bb139b229",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b32a",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e3ed772007",
+      "startTime": 1754148957269,
+      "endTime": 1754148957781,
+      "currentVariables": {}
+    },
+    {
+      "network": {
+        "HTTPVersion": "1.1",
+        "Proxy": {},
+        "LocalAddress": "127.0.0.1",
+        "RemoteAddress": "127.0.0.1"
+      },
+      "formatTimings": {
+        "prepare": {
+          "duration": 0.94,
+          "width": -0.31,
+          "level": "gray"
+        },
+        "socketInitialization": {
+          "duration": 0.43,
+          "width": 0.15,
+          "level": "green"
+        },
+        "dnsLookup": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "tcpHandshake": {
+          "duration": 0,
+          "width": 0,
+          "level": "green"
+        },
+        "waiting": {
+          "duration": 1.66,
+          "width": 0.58,
+          "level": "green"
+        },
+        "download": {
+          "duration": 0.78,
+          "width": 0.27,
+          "level": "green"
+        },
+        "process": {
+          "duration": 0.19
+        },
+        "total": {
+          "duration": 3.05
+        }
+      },
+      "formatSize": {
+        "requestHeaders": 187,
+        "responseHeaders": 128,
+        "responseSize": 2509,
+        "requestBody": 0,
+        "responseBody": 2381,
+        "uncompressedResponseBody": 2381
+      },
+      "timings": {
+        "request": 0.9409000873565674,
+        "socket": 1.368399977684021,
+        "response": 3.0242000818252563,
+        "end": 3.8046000003814697,
+        "lookup": 1.368399977684021,
+        "connect": 1.368399977684021,
+        "done": 3.9943000078201294
+      },
+      "response_time": 3,
+      "response_at": 1754148958238,
+      "proxy": {},
+      "status": {
+        "assert": "OK",
+        "http": "Ok"
+      },
+      "code": 200,
+      "response_size": 2509,
+      "url": "http://127.0.0.1:8080/comment?post_id=1&user_id=1",
+      "method": "GET",
+      "name": "listcomment",
+      "target_id": "efdc253b9b232",
+      "project_id": "4cebef7a9821000",
+      "type": "api",
+      "event_id": "f02a27639b32b",
+      "test_id": "f02664ef9b322",
+      "iteration_id": "f02e46df72008",
+      "startTime": 1754148957783,
+      "endTime": 1754148958247,
+      "currentVariables": {}
+    }
+  ],
+  "report_id": "f02e4e3b72009",
+  "report_name": "myblog",
+  "start_at": 1754148952820,
+  "testing_id": "f02664ef9b322",
+  "total_response_size": 4999,
+  "total_response_time": 745,
+  "total_time": 5431,
+  "variables": {
+    "globals": {},
+    "environment": {}
+  }
+}
