@@ -111,7 +111,7 @@ func DeleteArticleAPI(r *gin.Engine, db *gorm.DB) (err error) {
 	r.DELETE("/article", func(c *gin.Context) {
 		type Tpost struct {
 			Title  string `json:"title,omitempty"`
-			Userid string `json:"userid,omitempty"`
+			Userid uint   `json:"userid,omitempty"`
 		}
 		dpost := Tpost{}
 		err = c.ShouldBindJSON(&dpost)
@@ -121,8 +121,8 @@ func DeleteArticleAPI(r *gin.Engine, db *gorm.DB) (err error) {
 			return
 		}
 		mylog.Mlogger.Println("dpost:", dpost)
-		int_userid, _ := strconv.ParseUint(dpost.Userid, 10, 0)
-		res := db.Unscoped().Where(sqlmodel.Post{Title: dpost.Title, User_id: uint(int_userid)}).Delete(&sqlmodel.Post{})
+		//int_userid, _ := strconv.ParseUint(dpost.Userid, 10, 0)
+		res := db.Unscoped().Where(sqlmodel.Post{Title: dpost.Title, User_id: dpost.Userid}).Delete(&sqlmodel.Post{})
 		if res.Error != nil {
 			mylog.Mlogger.Println(res.Error)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": res.Error.Error()})
