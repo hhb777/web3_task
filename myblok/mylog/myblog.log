@@ -64,3 +64,9 @@
 2025/08/03 12:20:25 
 2025/08/03 12:20:36 dpost: {hhbweb3testupdate 1}
 2025/08/03 12:20:36 Delete article successfully
+2025/08/03 12:37:15 
+2025/08/03 12:37:50 EOF
+2025/08/03 12:38:02 dpost: {hhbweb3testupdate 1}
+2025/08/03 12:38:02 Delete article successfully
+2025/08/03 12:38:19 dpost: {hhbweb3test 1}
+2025/08/03 12:38:19 Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`myblok`.`comments`, CONSTRAINT `fk_comments_post` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`))
