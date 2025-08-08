@@ -1,0 +1,93 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "test",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/soliditybase/importtest.sol": "Import"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+				"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Address.sol": {
+			"keccak256": "0x6d0ae6e206645341fd122d278c2cb643dea260c190531f2f3f6a0426e77b00c0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://032d1201d839435be2c85b72e33206b3ea980c569d6ebf7fa57d811ab580a82f",
+				"dweb:/ipfs/QmeqQjAtMvdZT2tG7zm39itcRJkuwu8AEReK6WRnLJ18DD"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Errors.sol": {
+			"keccak256": "0x6afa713bfd42cf0f7656efa91201007ac465e42049d7de1d50753a373648c123",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba1d02f4847670a1b83dec9f7d37f0b0418d6043447b69f3a29a5f9efc547fcf",
+				"dweb:/ipfs/QmQ7iH2keLNUKgq2xSWcRmuBE5eZ3F5whYAkAGzCNNoEWB"
+			]
+		},
+		"solidity/soliditybase/Yeye.sol": {
+			"keccak256": "0x0cf92cfaba914bf65923eceb46d0e6e65565439207e3aabcac54210db0538693",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://db165659cf5103f9c4f3e0896e440daad3b8be70d38b77ede8d12cec4f393893",
+				"dweb:/ipfs/QmRBBH1cEQ2fEoJqhqZMGPsmZwHKvaXriD7CVtZSmDfBX5"
+			]
+		},
+		"solidity/soliditybase/importtest.sol": {
+			"keccak256": "0x729a83d9d2e328b55cb8b2406130e658e62f7454156d1c9de5760da48481812c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://76525d83c1e20e5c8be8e30d324d171d5ce7bc70ee689fb5444929e696dd5779",
+				"dweb:/ipfs/QmTDHYNkSZP4pmmbTsPuUq8giX9g4a1uEVDMTPUHfQSWe7"
+			]
+		}
+	},
+	"version": 1
+}

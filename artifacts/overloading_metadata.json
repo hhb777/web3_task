@@ -1,0 +1,116 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_in",
+						"type": "uint8"
+					}
+				],
+				"name": "f",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "out",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_in",
+						"type": "uint256"
+					}
+				],
+				"name": "f",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "out",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "saysomething",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "saysomething",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/soliditybase/overloading.sol": "overloading"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/soliditybase/overloading.sol": {
+			"keccak256": "0x8480bed7820f81e8efb6bcac7f5b3c8e0f61a7864a9ff4c5d63913a401974dc7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d45593e8ea8551cb06785574c258ff721177a09eb46fb92f60617b51cdd9e27b",
+				"dweb:/ipfs/QmY8W581iqveUxpmoCNk15JjtHup2WaWUmZqKfgxqZ7dLX"
+			]
+		}
+	},
+	"version": 1
+}
