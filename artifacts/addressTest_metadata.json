@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "test",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "test2",
+				"outputs": [
+					{
+						"internalType": "bytes1",
+						"name": "",
+						"type": "bytes1"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/soliditybase/typetest.sol": "addressTest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/soliditybase/typetest.sol": {
+			"keccak256": "0x1ac597971e0b9e36e88d1cc75c5fed554301628e1443d3a4d255ff5b2f239c7c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e4fa9ac49ddea883de7f7ce50a7551d92ac4857a377715404949423c824b170c",
+				"dweb:/ipfs/QmNuscj9HVxCLzYe2sEjvAqaaGBzmkGC6aVvfxNdKFR3BP"
+			]
+		}
+	},
+	"version": 1
+}
