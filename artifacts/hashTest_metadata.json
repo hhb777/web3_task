@@ -1,0 +1,89 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "string1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "string2",
+						"type": "string"
+					}
+				],
+				"name": "strong",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "string1",
+						"type": "string"
+					}
+				],
+				"name": "weak",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/soliditybase/hashtest.sol": "hashTest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/soliditybase/hashtest.sol": {
+			"keccak256": "0x1d3d1cafd6eba922acfcae3b70dbb7dbdd554267b23f76cf94f9567000a40262",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c1a4ac133bba05d7ad41ad02ddb61fb198097e27ee0914d76ec24a8cd52ed62",
+				"dweb:/ipfs/QmQA6inHHyMKfnuncHBRqCsy33FMvX7xapSyKhyi5BEDTy"
+			]
+		}
+	},
+	"version": 1
+}
