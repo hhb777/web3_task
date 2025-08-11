@@ -1,0 +1,80 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "s",
+						"type": "string"
+					}
+				],
+				"name": "fallbackLOG",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "s",
+						"type": "string"
+					}
+				],
+				"name": "recvLOG",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/homework/recvfallbacktest.sol": "recvfallback"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/homework/recvfallbacktest.sol": {
+			"keccak256": "0x2c9d231c3ed9b173c948b5e0f17020aaa61a5989b2cb96094f649e6e2bffb99e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://38729869648ad60bf61e7d866d28ff9e7521bec0a6a99b7845d60ec0e9482ce8",
+				"dweb:/ipfs/QmYbgYwtjEn7NwUihPm2JTULw8fGsUeLYYgc4jxiKsaPHv"
+			]
+		}
+	},
+	"version": 1
+}

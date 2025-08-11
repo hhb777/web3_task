@@ -1,0 +1,74 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "Getblockinfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blocknum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "blockaddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gasprice",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/homework/globalparam.sol": "ABItest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/homework/globalparam.sol": {
+			"keccak256": "0x20a22bfd743ce0c0164bbfd7930fa513444ca70e027a353683154a4bc3e330ed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://183b926fdde1eded66ba73521872a85f921d0a9d19e9381eab1bc3ed90349c85",
+				"dweb:/ipfs/QmcKeRGk6J7ovCAkwxo9LQrH1qfDy9JVRSw5KJa64ogvht"
+			]
+		}
+	},
+	"version": 1
+}

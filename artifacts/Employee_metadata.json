@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "test",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/homework/inherittest.sol": "Employee"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/homework/inherittest.sol": {
+			"keccak256": "0xac3e8efb8154335a9e67f1d08464a67c9209a77b004ebe05c498fca6232d4ca3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a3e8a7b07a85c6ffb17d7e8186aa01f68fc6e33c81d0b1341dac4e4f589218f4",
+				"dweb:/ipfs/QmZg54B3wS8kCALLWrdSLXAo7voqy158jh8wbvHw6hoaNn"
+			]
+		}
+	},
+	"version": 1
+}

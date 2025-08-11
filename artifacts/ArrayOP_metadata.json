@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "nums",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "num",
+						"type": "uint256"
+					}
+				],
+				"name": "contains",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"solidity/homework/lintest.sol": "ArrayOP"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"solidity/homework/lintest.sol": {
+			"keccak256": "0x172fbf0d8e86f048766bbf5262bbad8b9117e8eca9b9902a5728c4bdd9378427",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6abc99a013334ccef041a29cec0303f39ec34e0411a95fc70bd7620794225b78",
+				"dweb:/ipfs/QmdaWdU1iub3Rw5LZwMs7JcTV47BQxmmuypM6cKqmEwDxu"
+			]
+		}
+	},
+	"version": 1
+}

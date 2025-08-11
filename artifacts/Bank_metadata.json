@@ -6,54 +6,61 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
-						"internalType": "bytes",
-						"name": "input",
-						"type": "bytes"
-					},
-					{
-						"indexed": false,
-						"internalType": "bytes",
-						"name": "output",
-						"type": "bytes"
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					}
 				],
-				"name": "Calllog",
-				"type": "event"
+				"name": "addamount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "bytes",
-						"name": "input",
-						"type": "bytes"
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
-				"name": "withdrawWithCall",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "withdrawWithSend",
-				"outputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "subtractamount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "withdrawWithTransfer",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"stateMutability": "payable",
-				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -69,7 +76,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"solidity/soliditybase/banktest.sol": "Bank"
+			"solidity/homework/interfacetest.sol": "Bank"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -83,12 +90,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"solidity/soliditybase/banktest.sol": {
-			"keccak256": "0x03ec2da2d3be737f0c3a9739b65ac8e95197c82c90811c32bbea52918346a674",
+		"solidity/homework/interfacetest.sol": {
+			"keccak256": "0xd953f0fabbac8ae6bc9e825f578672d6d0d00234c5417e1ba649031a7d2324b6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3338ee65f5ccd9a816405b10bfce8ae609a13faf829b10a9a66959e28ac69b65",
-				"dweb:/ipfs/QmRNHkJd3hZaV9Syw6KHGiBJfzz6GCCFQJH1RWkUDgyCf3"
+				"bzz-raw://d7dd306d1aa8c6e6c3dda7ba7ad73a5ebde660eee2ace5b1f4351a40d6d1cc44",
+				"dweb:/ipfs/QmRLMxr4dB6TpxcJusXcFnug3qB9HyGSJimffJKB7qjULf"
 			]
 		}
 	},
