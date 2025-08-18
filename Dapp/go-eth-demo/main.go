@@ -9,5 +9,9 @@ func main() {
 	//goethereumbase.SelectTrans(Pkey)
 	//goethereumbase.SelectRecv(Pkey)
 	//goethereumbase.CreateWallet()
-	goethereumbase.ETHTrans(Pkey)
+	//goethereumbase.ETHTrans(Pkey)
+	//goethereumbase.Erc20Trans(Pkey)
+	//goethereumbase.SelectBalance(Pkey)
+	//goethereumbase.SelectERC20Balance(Pkey)
+	goethereumbase.SubscribeBlock(Pkey)
 }
