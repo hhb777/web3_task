@@ -9,5 +9,6 @@ Transaction sent: 0x325573d6d622894cfa08fa886763853fa9e67b915c682e9eb1e898b6a241
 
 // 合约操作
 ![img_3.png](img_3.png)
+<img width="1550" height="514" alt="image" src="https://github.com/user-attachments/assets/51679795-691f-4f19-9ecc-fa44413e6565" />
 
 
