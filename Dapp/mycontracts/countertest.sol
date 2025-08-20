@@ -2,8 +2,10 @@
 pragma solidity ^0.8;
 
 contract CounterTest{
-    uint count;
+    event CounterAddEvent(uint indexed count);
+    uint public count;
     function CountAdd() external {
         count++;
+        emit CounterAddEvent(count);
     }
 }
