@@ -2,7 +2,7 @@
 pragma solidity ^0.8;
 
 contract Store{
-    event ItemSet(bytes32 key, bytes32 value);
+    event ItemSet(bytes32 indexed key, bytes32 value);
 
     string public version;
     mapping(bytes32 => bytes32) public items;

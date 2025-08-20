@@ -15,5 +15,7 @@ func main() {
 	//goethereumbase.SelectERC20Balance(Pkey)
 	//goethereumbase.SubscribeBlock(Pkey)
 	//goethereumbase.DeployContract(Pkey)
-	goethereumbase.LoadContract(Pkey)
+	//goethereumbase.LoadContract(Pkey)
+	//goethereumbase.ExcuteContract(Pkey)
+	goethereumbase.EventContract(Pkey)
 }
