@@ -10,4 +10,5 @@ go get github.com/ethereum/go-ethereum/keystore
 ..\..\solidity\hardhat\node_modules\.bin\solcjs --bin ..\mycontracts\countertest.sol
 5. abigen工具生成go文件
    D:\goproject\pkg\mod\github.com\ethereum\go-ethereum@v1.16.2\build\bin\cmd\abigen.exe --bin=countertest_sol_CounterTest.bin --abi=countertest_sol_CounterTest.abi --pkg=countertest --out=countertest.go
-6. 
+6.安装keystore
+  go get github.com/ethereum/go-ethereum/accounts/keystore@v1.16.2
