@@ -29,6 +29,7 @@ contract MyMeme is Ownable, ERC20 {
 
     uint256 private maxTxAmount; // 最大交易额
     uint32 private dailyTxLimit; // 每日交易次数限制
+    mapping(address => uint256) private lastTx; //最后一次交易时间
     mapping(address => uint32) private dailyTxCount; // 记录每日交易次数
 
     constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) Ownable(msg.sender) {
@@ -90,6 +91,10 @@ contract MyMeme is Ownable, ERC20 {
     function metransfer(address from, address to, uint256 amount) external {
         // 检查交易限制
         require(amount <= maxTxAmount, "Transfer amount exceeds the maxTxAmount.");
+        // 每天交易次数清零
+        if (block.timestamp >= lastTx[from] + 1 days) {
+            dailyTxCount[from] = 0;
+        }
         // 检查每日交易次数
         require(dailyTxCount[from] < dailyTxLimit, "Exceeds daily transaction limit.");
         dailyTxCount[from]++;
