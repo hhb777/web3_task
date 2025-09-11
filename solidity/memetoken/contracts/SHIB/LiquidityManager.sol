@@ -40,7 +40,26 @@ contract LiquidityManager is Ownable {
         emit LiquidityAdded(amountToken, amountETH);
     }
 
-    // swapExactTokenForETH
+    // 交换代币为 ETH
+    function swapExactTokensForETH(uint256 tokenAmount, uint256 minEthAmount, address to, uint256 deadline) external {
+        require(memeToken.transferFrom(msg.sender, address(this), tokenAmount), "Transfer failed");
+
+        // 批准路由器支取代币
+        memeToken.approve(address(uniswapRouter), tokenAmount);
+
+        // 进行交换
+        address[] memory path = new address[](2);
+        path[0] = address(memeToken);
+        path[1] = uniswapRouter.WETH();
+
+        uniswapRouter.swapExactTokensForETH(
+            tokenAmount,
+            minEthAmount,
+            path,
+            to,
+            deadline
+        );
+    }
     
 
     // 从流动性池中移除流动性
