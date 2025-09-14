@@ -355,6 +355,7 @@ contract MetaNodeStake is
         if (_to > endBlock) {_to = endBlock;}
         require(_from <= _to, "end block must be greater than start block");
         bool success;
+        //区块差 * 每块奖励
         (success, multiplier) = (_to - _from).tryMul(MetaNodePerBlock);
         require(success, "multiplier overflow");
     }
@@ -376,8 +377,11 @@ contract MetaNodeStake is
         uint256 stSupply = pool_.stTokenAmount;
 
         if (_blockNumber > pool_.lastRewardBlock && stSupply != 0) {
+            // 获取区间区块奖励
             uint256 multiplier = getMultiplier(pool_.lastRewardBlock, _blockNumber);
+            // 计算metaNode在池子中的奖励，按照权重分配
             uint256 MetaNodeForPool = multiplier * pool_.poolWeight / totalPoolWeight;
+            // 计算每个质押代币的奖励
             accMetaNodePerST = accMetaNodePerST + MetaNodeForPool * (1 ether) / stSupply;
         }
 
@@ -401,6 +405,7 @@ contract MetaNodeStake is
             if (user_.requests[i].unlockBlocks <= block.number) {
                 pendingWithdrawAmount = pendingWithdrawAmount + user_.requests[i].amount;
             }
+            // 将来可以提取的数量
             requestAmount = requestAmount + user_.requests[i].amount;
         }
     }
@@ -420,6 +425,7 @@ contract MetaNodeStake is
         (bool success1, uint256 totalMetaNode) = getMultiplier(pool_.lastRewardBlock, block.number).tryMul(pool_.poolWeight);
         require(success1, "overflow");
 
+        // 所有metaNode奖励按照权重分配
         (success1, totalMetaNode) = totalMetaNode.tryDiv(totalPoolWeight);
         require(success1, "overflow");
 
@@ -566,6 +572,7 @@ contract MetaNodeStake is
 
         updatePool(_pid);
 
+        // 用户拥有的metaNode乘以积累的每个质押代币的MetaNode价格，减去已经发放的MetaNode，加上待发放的MetaNode，就是当前可领取的MetaNode
         uint256 pendingMetaNode_ = user_.stAmount * pool_.accMetaNodePerST / (1 ether) - user_.finishedMetaNode + user_.pendingMetaNode;
 
         if(pendingMetaNode_ > 0) {
@@ -573,6 +580,7 @@ contract MetaNodeStake is
             _safeMetaNodeTransfer(msg.sender, pendingMetaNode_);
         }
 
+        // 计算用户已经领取的MetaNode数量
         user_.finishedMetaNode = user_.stAmount * pool_.accMetaNodePerST / (1 ether);
 
         emit Claim(msg.sender, _pid, pendingMetaNode_);

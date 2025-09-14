@@ -7,9 +7,13 @@ require("@openzeppelin/hardhat-upgrades")
 module.exports = {
   solidity: "0.8.28",
   networks: {
-      sepolia: {
-        url:`https://sepolia.infura.io/v3/xxx`,
-        accounts: [`xxxx`]
-      }
+      localhost: {
+        url: "http://127.0.0.1:8545",
+
+      },
+      // sepolia: {
+      //   url:`https://sepolia.infura.io/v3/xxx`,
+      //   accounts: [`xxxx`]
+      // }
   }
 };

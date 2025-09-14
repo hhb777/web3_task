@@ -35,7 +35,7 @@ async function main(){
     console.log("部署MetaNodeStake合约地址:", await MetaNodeStake.getAddress());
 
     const tokenAmount = await MetaNodeToken.balanceOf(siger.address)
-    //质押所有MetaNodeToken代币
+    //转账所有MetaNodeToken代币至MetaNodeStake合约
     let tx = await MetaNodeToken.connect(siger).transfer(MetaNodeStake.getAddress(), tokenAmount)
     await tx.wait()
     const lastblocknum = await ethers.provider.getBlockNumber();
@@ -65,35 +65,48 @@ async function main(){
      * 参数五、是否更新池
      */
     console.log("start addpool");
-    await MetaNodeStake.addPool(ethers.ZeroAddress, 500, 100, 20, true);
+    await MetaNodeStake.addPool(ethers.ZeroAddress, 500, 100, 2, true);
     console.log("success for addpool");
     const cpool =  await MetaNodeStake.pool(0);
     expect(cpool.stTokenAddress).to.equal(ethers.ZeroAddress);
     expect(cpool.poolWeight).to.equal(500);
+    //不一致原因是lastRewardBlock在addPool函数中被赋值为当前区块高度,而不是startBlock
     // expect(cpool.lastRewardBlock).to.equal(startBlock);
     expect(cpool.accMetaNodePerST).to.equal(0);
     expect(cpool.stTokenAmount).to.equal(0);
     expect(cpool.minDepositAmount).to.equal(100);
-    expect(cpool.unstakeLockedBlocks).to.equal(20);
+    expect(cpool.unstakeLockedBlocks).to.equal(2);
 
+    // MetaNode代币加入池
+    await MetaNodeStake.addPool(MetaNodeTokenAddress, 300, 200, 1, true);
+    console.log("success for addpool MetaNodeToken");
+    const mpool =  await MetaNodeStake.pool(1);
+    expect(mpool.stTokenAddress).to.equal(MetaNodeTokenAddress);
+    expect(mpool.poolWeight).to.equal(300);
+    expect(mpool.accMetaNodePerST).to.equal(0);
+    expect(mpool.stTokenAmount).to.equal(0);
+    expect(mpool.minDepositAmount).to.equal(200);
+    expect(mpool.unstakeLockedBlocks).to.equal(1);
     
     /**
      * 更新池测试
      */
     await MetaNodeStake.massUpdatePools();
     const pool = await MetaNodeStake.pool(0);
-
     expect(pool.minDepositAmount).to.equal(100);
-    expect(pool.unstakeLockedBlocks).to.equal(20);
-    // expect(pool.lastRewardBlock).to.equal(startBlock);
+    expect(pool.unstakeLockedBlocks).to.equal(2);
+
+    const mpool2 = await MetaNodeStake.pool(1);
+    expect(mpool2.minDepositAmount).to.equal(200);
+    expect(mpool2.unstakeLockedBlocks).to.equal(1);
 
     
-    for (let i = lastblocknum; i < lastblocknum + 1; i++) {
+    for (let i = startBlock; i < lastblocknum + 1; i++) {
             await ethers.provider.send("evm_mine", []);
     }
     await MetaNodeStake.massUpdatePools();
     const updatedpool = await MetaNodeStake.pool(0);
-    // expect(updatedpool.lastRewardBlock).to.equal(1000)
+    // expect(updatedpool.lastRewardBlock).to.equal(lastblocknum);
 
     /**
      * 设置池权重
@@ -116,39 +129,40 @@ async function main(){
 
     // await siger.sendTransaction({ to: MetaNodeStake.address, value: 1000_000_000 });
     console.log("start depositETH");
-    await MetaNodeStake.connect(siger).depositETH({value: 1000_000_000});
+    await MetaNodeStake.connect(siger).depositETH({value: ethers.parseEther("100")});
     console.log("end depositETH");
     const updatedPool = await MetaNodeStake.pool(0);
     const userInfo = await MetaNodeStake.user(0, siger.address);
     console.log("userInfo:", userInfo);
-    expect(updatedPool.stTokenAmount).to.equal(prePoolStTokenAmount + BigInt(1000_000_000 ));
+    expect(updatedPool.stTokenAmount).to.equal(prePoolStTokenAmount + BigInt(ethers.parseEther("100") ));
 
     // await siger.sendTransaction({
     //     to: MetaNodeStake.address,
     //     value: 2000_000_000, 
     // });
-    await MetaNodeStake.connect(siger).depositETH({value: 2000_000_000});
+    await MetaNodeStake.connect(siger).depositETH({value: ethers.parseEther("200")});
 
-    for (let i = lastblocknum; i < lastblocknum + 2; i++) {
+    for (let i = startBlock; i < lastblocknum + 2; i++) {
             await ethers.provider.send("evm_mine", []);
     }
-    await MetaNodeStake.unstake(0, 100);
+    await MetaNodeStake.unstake(0, ethers.parseEther("10"));
 
     
     // Repeat for further deposits and unstaking
-    await MetaNodeStake.unstake(0, 100);
+    await MetaNodeStake.unstake(0, ethers.parseEther("10"));
     for (let i = 3; i <= 7; i++) {
         // await siger.sendTransaction({
         //     to: MetaNodeStake.address,
         //     value: 1000_000_000, 
         // });
-        await MetaNodeStake.connect(siger).depositETH({value: 1000_000_000});
-        for (let j = lastblocknum; j < lastblocknum + i; j++) {
+        await MetaNodeStake.connect(siger).depositETH({value: ethers.parseEther("100")});
+        for (let j = startBlock; j < lastblocknum + i; j++) {
             await ethers.provider.send("evm_mine", []);
         }
-        await MetaNodeStake.unstake(0, 100);
+        await MetaNodeStake.unstake(0, ethers.parseEther("10"));
     }
 
+    // 提取user unstake中的amount到用户余额
     await MetaNodeStake.withdraw(0);
     console.log("success deposit");
 
@@ -157,8 +171,9 @@ async function main(){
      */
     // await MetaNodeToken.transfer(MetaNodeStake.getAddress(), 100000000000);
     const preUserMetaNodeBalance = await MetaNodeToken.balanceOf(siger.address);
+    console.log("preUserMetaNodeBalance:", preUserMetaNodeBalance);
 
-    for (let i = lastblocknum; i < lastblocknum + 2; i++) {
+    for (let i = startBlock; i < lastblocknum + 2; i++) {
         await ethers.provider.send("evm_mine", []);
     }
     await MetaNodeStake.claim(0);
@@ -169,20 +184,20 @@ async function main(){
     /**
      * unstake测试
      */
-
-    for (let i = lastblocknum; i < lastblocknum + 2; i++) {
+    const pool5 = await MetaNodeStake.pool(0);
+    console.log("pool stTokenAmount:", pool5.stTokenAmount);
+    for (let i = startBlock; i < lastblocknum + 2; i++) {
         await ethers.provider.send("evm_mine", []);
     }
-    await MetaNodeStake.unstake(0, 100);
+
+    await MetaNodeStake.unstake(0, ethers.parseEther("10"));
 
     const user = await MetaNodeStake.user(0, siger.address);
-    // expect(user.stAmount).to.equal(0);
-    // expect(user.finishedMetaNode).to.equal(0);
     console.log("unstake user:", user);
     expect(user.pendingMetaNode).to.be.gt(0);
 
     const pool4 = await MetaNodeStake.pool(0);
-    // expect(pool4.stTokenAmount).to.equal(0);
+    expect(pool4.stTokenAmount).to.equal(user.stAmount);
     console.log("unstake pool:", pool4);
 
     /**
@@ -190,13 +205,15 @@ async function main(){
      */
     // await MetaNodeToken.transfer(MetaNodeStake.getAddress(), 100000000000);
     const preUserMetaNodeBalance2 = await MetaNodeToken.balanceOf(siger.address);
+    console.log("preUserMetaNodeBalance2:", preUserMetaNodeBalance2);
 
-    for (let i = lastblocknum; i < lastblocknum + 2; i++) {
+    for (let i = startBlock; i < lastblocknum + 30; i++) {
         await ethers.provider.send("evm_mine", []);
     }
     await MetaNodeStake.claim(0);
 
     const postUserMetaNodeBalance2 = await MetaNodeToken.balanceOf(siger.address);
+    console.log("postUserMetaNodeBalance2:", postUserMetaNodeBalance2);
     expect(postUserMetaNodeBalance2).to.be.gt(preUserMetaNodeBalance2);
 
     /**
@@ -205,7 +222,7 @@ async function main(){
     const preContractBalance = await ethers.provider.getBalance(MetaNodeStake.getAddress());
     const preUserBalance = await ethers.provider.getBalance(siger.address);
 
-    for (let i = lastblocknum; i < lastblocknum + 2; i++) {
+    for (let i = startBlock; i < lastblocknum + 1000; i++) {
         await ethers.provider.send("evm_mine", []);
     }
     await MetaNodeStake.withdraw(0);
@@ -213,7 +230,23 @@ async function main(){
     const postContractBalance = await ethers.provider.getBalance(MetaNodeStake.getAddress());
     const postUserBalance = await ethers.provider.getBalance(siger.address);
     expect(postContractBalance).to.be.lt(preContractBalance);
-    // expect(postUserBalance).to.be.gt(preUserBalance);???
+    console.log("postUserBalance:", postUserBalance);
+    console.log("preUserBalance:", preUserBalance);
+    // let postUserBalance;
+    // function sleep(milliseconds) {
+    //     return new Promise(resolve => setTimeout(resolve, milliseconds));
+    // }
+    // for(let i = 0; i < 10; i++){
+    //     postUserBalance = await ethers.provider.getBalance(siger.address);
+    //     const tuser = await MetaNodeStake.user(0, siger.address);
+    //     console.log("user:", tuser);
+    //     await MetaNodeStake.withdraw(0);
+    //     console.log("postUserBalance:", postUserBalance);
+    //     console.log("preUserBalance:", preUserBalance);
+    //     await sleep(2000);
+        
+    // }
+    expect(postUserBalance).to.be.gt(preUserBalance);
 
     /**
      * claim after withdraw
@@ -221,7 +254,7 @@ async function main(){
     // await MetaNodeToken.transfer(MetaNodeStake.getAddress(), 100000000000);
     const preUserMetaNodeBalance3 = await MetaNodeToken.balanceOf(siger.address);
 
-    for (let i = lastblocknum; i < lastblocknum + 2; i++) {
+    for (let i = startBlock; i < lastblocknum + 2; i++) {
         await ethers.provider.send("evm_mine", []);
     }
     await MetaNodeStake.claim(0);
