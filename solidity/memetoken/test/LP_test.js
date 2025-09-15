@@ -29,7 +29,7 @@ async function main(){
         // 铸造一些代币到部署合约的账户1
         await contract2.mint(user1.address, ethers.parseEther("200"));
 
-        const user2blance = await contract.balanceOf(user1.address);
+        const user2blance = await contract2.balanceOf(user1.address);
         console.log("user2blance", user2blance.toString());
 
         //部署流动性合约
