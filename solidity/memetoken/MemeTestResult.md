@@ -21,3 +21,9 @@ MyMeme.js编写测试用例
 <img width="1213" height="820" alt="image" src="https://github.com/user-attachments/assets/71655c81-0fe0-440c-b351-cad99f6b7650" />
 
 四、编写LiquidityManager.sol流动性池集成合约和部署
+<img width="1206" height="769" alt="image" src="https://github.com/user-attachments/assets/190fb449-86f1-452a-8a84-f90cf382faa0" />
+
+<img width="1206" height="825" alt="image" src="https://github.com/user-attachments/assets/a03becfd-f071-4a6f-b42f-f9df38550cc1" />
+
+
+
