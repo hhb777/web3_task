@@ -90,6 +90,7 @@ async function main(){
         console.log("流动性合约代币1余额", lmblance11.toString());
         const lmblance22 = await contract2.balanceOf(liquidityManager.getAddress());
         console.log("流动性合约代币2余额", lmblance22.toString());
+        // 奖励3%的手续费余额
         expect(lmblance11).to.equal(ethers.parseEther("0.3"));
         expect(lmblance22).to.equal(ethers.parseEther("9.7"));
 
