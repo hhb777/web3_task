@@ -3,7 +3,7 @@ const { ethers,deployments,upgrades } = require("hardhat");
 // module.exports = async ({ deployments }) => {
 async function main() {
     const [siger] = await ethers.getSigners();
-    const { save } = deployments;
+    const { save } = deployments; 
     
     //先部署token合约
     const tokenContract = await ethers.getContractFactory("MetaNodeToken");
